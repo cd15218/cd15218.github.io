@@ -93,14 +93,13 @@
                 </div>
                 
                 <h1 class="text-3xl md:text-4.5xl font-black tracking-tight mb-3 leading-tight">
-                    Help Build a <span class="bg-gradient-to-r from-brand-500 via-emerald-400 to-emerald-300 bg-clip-text text-transparent">100% Clean Power Grid</span>
+                    Power Our Grid with <span class="bg-gradient-to-r from-brand-600 via-emerald-400 to-green-300 bg-clip-text text-transparent">100% Clean Energy</span>
                 </h1>
                 
                 <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-                    Wisconsin electricity is heavily carbon-reliant. By voluntary matching with local renewables, you prevent greenhouse gas production directly. No home construction, panel installations, or property modifications required.
+                    Wisconsin's electricity grid is still heavily carbon-reliant. By voluntarily matching your monthly usage, you fund clean energy generation on our shared grid—accelerating our transition to a renewable future without any panel installations or home construction.
                 </p>
 
-                <!-- Interactive Hero Search Engine -->
                 <div class="bg-slate-950/80 backdrop-blur border border-slate-800 p-3.5 rounded-2xl max-w-2xl mx-auto shadow-2xl">
                     <div class="flex flex-col md:flex-row gap-2.5">
                         <div class="relative flex-1">
@@ -464,15 +463,22 @@
             lucide.createIcons();
         }
 
-        // Action when searching via hero
+        // Action when searching via hero (with header offset logic)
         function triggerHeroSearch() {
             const input = document.getElementById('heroSearchInput');
             searchQuery = input.value;
             renderDirectory();
             
-            // Seamlessly scroll down to directory
+            // Seamlessly scroll down to directory accounting for the sticky header
             const dirSection = document.getElementById('directory');
-            dirSection.scrollIntoView({ behavior: 'smooth' });
+            const headerOffset = 90; // sticky header height (64px) + breathing room
+            const elementPosition = dirSection.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
         }
 
         // Live filtering from search bar typing
