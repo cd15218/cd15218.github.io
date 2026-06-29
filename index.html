@@ -481,6 +481,14 @@
             renderDirectory();
         });
 
+        // Listen for Enter / Return key press to execute search scroll immediately
+        document.getElementById('heroSearchInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault(); // Prevent default form submit behavior
+                triggerHeroSearch();
+            }
+        });
+
         function resetFilters() {
             activeFilter = 'all';
             searchQuery = '';
