@@ -84,7 +84,6 @@
     <main class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         
         <section class="relative overflow-hidden rounded-3xl bg-slate-900 text-white shadow-xl dark:bg-slate-900/60 border border-slate-800 mb-6">
-            <!-- Decorative Background SVG Glows -->
             <div class="absolute -left-1/4 -top-1/4 h-96 w-96 rounded-full bg-brand-500/10 blur-[100px] pointer-events-none"></div>
             <div class="absolute -right-1/4 -bottom-1/4 h-96 w-96 rounded-full bg-emerald-500/10 blur-[100px] pointer-events-none"></div>
 
@@ -94,29 +93,27 @@
                 </div>
                 
                 <h1 class="text-3xl md:text-4.5xl font-black tracking-tight mb-3 leading-tight">
-                    Power your home with <span class="bg-gradient-to-r from-brand-500 via-emerald-400 to-emerald-300 bg-clip-text text-transparent">100% Carbon-Free Power</span>
+                    Power Your Home with <span class="bg-gradient-to-r from-brand-500 via-emerald-400 to-emerald-300 bg-clip-text text-transparent">100% Clean Energy</span>
                 </h1>
                 
                 <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
                     Wisconsin electricity is heavily carbon-reliant. By voluntary matching with local renewables, you prevent greenhouse gas production directly. No home construction, panel installations, or property modifications required.
                 </p>
 
-                <!-- Interactive Wizard Search Component -->
+                <!-- Interactive Hero Search Engine -->
                 <div class="bg-slate-950/80 backdrop-blur border border-slate-800 p-3.5 rounded-2xl max-w-2xl mx-auto shadow-2xl">
                     <div class="flex flex-col md:flex-row gap-2.5">
                         <div class="relative flex-1">
-                            <i data-lucide="map-pin" class="absolute left-4 top-3 h-5 w-5 text-slate-500"></i>
-                            <input type="text" id="cityInput" placeholder="Enter your WI city or ZIP code (e.g., Columbus, Madison, Milwaukee)..." 
+                            <i data-lucide="search" class="absolute left-4 top-3.5 h-5 w-5 text-slate-500"></i>
+                            <input type="text" id="heroSearchInput" placeholder="Enter utility, program, or community (e.g., Columbus, MGE, We Energies, Manitowoc)..." 
                                 class="w-full pl-11 pr-4 py-3 bg-slate-900 text-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-brand-500 border border-slate-800 placeholder-slate-500 text-sm transition">
-                            <!-- Dropdown suggestions -->
-                            <div id="citySuggestions" class="absolute left-0 right-0 top-full mt-2 bg-slate-900 border border-slate-800 rounded-xl shadow-xl overflow-hidden hidden z-50 text-left max-h-60 overflow-y-auto"></div>
                         </div>
-                        <button onclick="lookupUtility()" class="bg-brand-600 hover:bg-brand-700 transition font-bold text-white px-6 py-3 rounded-xl flex items-center justify-center gap-2 text-sm shadow-lg shadow-brand-600/15">
-                            Find My Utility <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                        <button onclick="triggerHeroSearch()" class="bg-brand-600 hover:bg-brand-700 transition font-bold text-white px-6 py-3 rounded-xl flex items-center justify-center gap-2 text-sm shadow-lg shadow-brand-600/15">
+                            Search Catalog <i data-lucide="arrow-right" class="h-4 w-4"></i>
                         </button>
                     </div>
                     <p class="text-[11px] text-slate-500 mt-2 text-center">
-                        Try: "Columbus" (WPPI Partner), "Madison" (MGE), "Milwaukee" (We Energies), or "Eau Claire" (Xcel)
+                        Typing instantly filters the active directory list below and brings you directly to your program.
                     </p>
                 </div>
             </div>
@@ -155,6 +152,8 @@
                                     <option value="Superior Water, Light and Power (SWL&P)">SWL&P</option>
                                     <option value="WPPI Energy Member Utilities">WPPI (Columbus Utilities)</option>
                                     <option value="Dairyland Power Cooperative Members">Dairyland Co-ops</option>
+                                    <option value="Manitowoc Public Utilities (MPU)">Manitowoc MPU</option>
+                                    <option value="Wisconsin Rapids Water Works & Lighting Commission (WWLC)">Wisconsin Rapids WWLC</option>
                                 </select>
                             </div>
                             <div>
@@ -229,21 +228,20 @@
                         <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 text-[10px] font-bold">100% Real-World</span>
                     </div>
 
-                    <div class="my-auto py-4 text-center">
-                        <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-100 dark:bg-brand-950/80 text-brand-600 dark:text-brand-400 mb-3 shadow-sm">
-                            <i data-lucide="car" class="h-6 w-6"></i>
+                    <div class="my-auto py-8 text-center flex flex-col items-center justify-center">
+                        <div class="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-100 dark:bg-brand-950/80 text-brand-600 dark:text-brand-400 mb-4 shadow-sm">
+                            <i data-lucide="car" class="h-8 w-8"></i>
                         </div>
-                        <h4 class="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Gasoline Miles Saved</h4>
-                        <div id="milesAvoided" class="text-2.5xl md:text-3.5xl font-black text-slate-900 dark:text-white mt-1 leading-none">
+                        <h4 class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Gasoline Miles Saved</h4>
+                        <div id="milesAvoided" class="text-3xl md:text-3.5xl lg:text-4.5xl font-black tracking-tight text-slate-900 dark:text-white mt-2 leading-none">
                             10,493 mi
                         </div>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 max-w-[240px] mx-auto">
-                            The equivalent greenhouse gas produced by driving an average gasoline passenger car.
-                        </p>
                     </div>
 
-                    <div class="bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 rounded-xl p-2.5 text-center text-[10px] text-slate-500 dark:text-slate-400">
-                        Equivalent to keeping fossil fuels in the ground forever.
+                    <!-- Left Aligned bottom informative card with Lucide info icon -->
+                    <div class="bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 rounded-xl p-3.5 text-left text-xs text-slate-500 dark:text-slate-400 font-medium flex items-start gap-2.5">
+                        <i data-lucide="info" class="h-4.5 w-4.5 text-brand-600 dark:text-brand-400 shrink-0 mt-0.5"></i>
+                        <span>The greenhouse gas emissions avoided by not driving an average gasoline car.</span>
                     </div>
                 </div>
             </div>
@@ -253,14 +251,14 @@
             <div class="flex flex-col md:flex-row gap-3 items-start md:items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4 mb-6">
                 <div>
                     <h2 class="text-xl font-extrabold tracking-tight">Utility Catalog Directory</h2>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Explore active programs offered by official Wisconsin providers (Referenced from the "Create me an exportable Google Sheets list" document).</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Explore active programs offered by official Wisconsin providers.</p>
                 </div>
                 
                 <div class="flex flex-wrap gap-1.5 w-full md:w-auto">
-                    <button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-600 text-white shadow-md shadow-brand-500/10 border border-transparent" data-filter="all">All Sectors</button>
-                    <button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-slate-200 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:hover:bg-slate-800 transition text-slate-600 dark:text-slate-300" data-filter="Investor-Owned">Investor-Owned</button>
-                    <button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-slate-200 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:hover:bg-slate-800 transition text-slate-600 dark:text-slate-300" data-filter="Municipal Utility Hub">Municipal Hubs</button>
-                    <button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-slate-200 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:hover:bg-slate-800 transition text-slate-600 dark:text-slate-300" data-filter="Rural Cooperative Hub">Rural Co-ops</button>
+                    <button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-600 text-white shadow-md shadow-brand-500/10 border border-transparent hover:bg-brand-700 dark:hover:bg-brand-500 transition cursor-pointer" data-filter="all">All Sectors</button>
+                    <button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-slate-200 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:hover:bg-slate-800 transition text-slate-600 dark:text-slate-300 cursor-pointer" data-filter="Investor-Owned">Investor-Owned</button>
+                    <button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-slate-200 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:hover:bg-slate-800 transition text-slate-600 dark:text-slate-300 cursor-pointer" data-filter="Municipal Utility Hub">Municipal Hubs</button>
+                    <button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-slate-200 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:hover:bg-slate-800 transition text-slate-600 dark:text-slate-300 cursor-pointer" data-filter="Rural Cooperative Hub">Rural Co-ops</button>
                 </div>
             </div>
 
@@ -269,15 +267,6 @@
         </section>
 
     </main>
-
-    <div id="modalOverlay" class="fixed inset-0 bg-slate-950/50 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
-        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 max-w-md w-full shadow-2xl relative animate-[scaleIn_0.2s_ease-out]">
-            <button onclick="closeModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
-                <i data-lucide="x" class="h-5 w-5"></i>
-            </button>
-            <div id="modalContent"></div>
-        </div>
-    </div>
 
     <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10 mt-16 text-slate-500 text-sm">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
@@ -303,7 +292,8 @@
                 details: "Sourced from regional wind and biomass projects to match household usage. Your NatureWise payments are PSC-regulated to construct local assets.",
                 link: "https://www.wisconsinpublicservice.com/environment/naturewise",
                 source: "Regional Wind & Biomass",
-                pricing: "$1.277 / 100 kWh Block"
+                pricing: "$1.277 / 100 kWh Block",
+                searchKeywords: "wps, appleton, green bay, sheboygan, oshkosh, naturewise, biomass"
             },
             {
                 category: "Investor-Owned",
@@ -312,7 +302,8 @@
                 details: "Allows matching at 25%, 50%, or 100% of your monthly electricity consumption with local, clean Wisconsin energy.",
                 link: "https://www.we-energies.com/environment/energy-for-tomorrow-wi",
                 source: "Wisconsin Solar & Wind",
-                pricing: "25% ($0.0029/kWh) | 50% ($0.00579/kWh) | 100% ($0.01158/kWh)"
+                pricing: "25% ($0.0029/kWh) | 50% ($0.00579/kWh) | 100% ($0.01158/kWh)",
+                searchKeywords: "we energies, milwaukee, kenosha, racine, waukesha, west allis, solar, wind"
             },
             {
                 category: "Investor-Owned",
@@ -321,7 +312,8 @@
                 details: "Allows customers to allocate usage to local wind and solar farms via a small per-kilowatt-hour premium. Ask about GPT RNG (Renewable Natural Gas) for gas offset.",
                 link: "https://www.mge.com/smart-energy/clean-energy/renewable-energy-programs/green-power-tomorrow",
                 source: "Local Wind & Solar Arrays",
-                pricing: "+$0.010 per kWh premium"
+                pricing: "+$0.010 per kWh premium",
+                searchKeywords: "mge, madison, fitchburg, green power tomorrow, gpt, solar"
             },
             {
                 category: "Investor-Owned",
@@ -330,7 +322,8 @@
                 details: "Offers enrollment tiers at 25%, 50%, or 100% matching levels to support regional green energy. Displaces fossil generation.",
                 link: "https://www.alliantenergy.com/ways-to-save/second-nature",
                 source: "Midwest Wind & Solar",
-                pricing: "25% ($0.0025/kWh) | 50% ($0.005/kWh) | 100% ($0.01/kWh)"
+                pricing: "25% ($0.0025/kWh) | 50% ($0.005/kWh) | 100% ($0.01/kWh)",
+                searchKeywords: "alliant, wpl, janesville, beloit, second nature, wind, solar"
             },
             {
                 category: "Investor-Owned",
@@ -339,7 +332,8 @@
                 details: "Provides flexible month-to-month or multi-year subscriptions tied to dedicated solar and wind facilities, or community solar waitlists.",
                 link: "https://co.my.xcelenergy.com/s/renewable/renewable-connect",
                 source: "Dedicated Solar & Wind",
-                pricing: "Flexible legacy and contract rates"
+                pricing: "Flexible legacy and contract rates",
+                searchKeywords: "xcel, eau claire, la crosse, community solar, renewable connect"
             },
             {
                 category: "Investor-Owned",
@@ -348,7 +342,8 @@
                 details: "A community solar subscription program allowing customers to buy blocks of energy to offset up to 100% of monthly usage.",
                 link: "https://www.swlp.com/CustomerService/SuperiorSolar",
                 source: "Superior Community Solar Garden",
-                pricing: "$16.25/mo per 1kW Block (or fixed 14.3¢/kWh)"
+                pricing: "$16.25/mo per 1kW Block (or fixed 14.3¢/kWh)",
+                searchKeywords: "superior water light power, swlp, superior solar, community garden"
             },
             {
                 category: "Municipal Utility Hub",
@@ -357,7 +352,28 @@
                 details: "Joint-action municipal power partnership including Columbus Water & Light. Customers purchase $2 blocks representing 300 kWh of solar, wind, and biogas.",
                 link: "https://wppienergy.org/customer-programs/choose-renewable/",
                 source: "Biogas, Wind, & Wisconsin Solar",
-                pricing: "$2.00 / 300 kWh Block"
+                pricing: "$2.00 / 300 kWh Block",
+                searchKeywords: "wppi, columbus utilities, water and light, cedarburg, sun prairie, choose renewable"
+            },
+            {
+                category: "Municipal Utility Hub",
+                company: "Manitowoc Public Utilities (MPU)",
+                programName: "Community Solar & Renewable Choice",
+                details: "MPU customers can subscribe to solar generation from the local Hecker Road Solar Garden. This program offers local renewable energy matching with zero upfront installation costs.",
+                link: "https://www.mpu.org/community-solar-program/",
+                source: "Hecker Road Solar Garden",
+                pricing: "Subscription block rates based on generation share",
+                searchKeywords: "mpu, manitowoc, solar garden, community solar, hecker road, municipal, independent"
+            },
+            {
+                category: "Municipal Utility Hub",
+                company: "Wisconsin Rapids Water Works & Lighting Commission (WWLC)",
+                programName: "Green Energy Program",
+                details: "Voluntary green energy initiative enabling residential customers to buy 100 kWh blocks of clean regional wind and hydroelectric power.",
+                link: "https://www.wrwwlc.com/electric/green-energy.php",
+                source: "Regional Wind & Hydro",
+                pricing: "$1.70 / 100 kWh Block",
+                searchKeywords: "wisconsin rapids, wwlc, wood county, municipal, green energy, hydro, wind, independent"
             },
             {
                 category: "Rural Cooperative Hub",
@@ -366,185 +382,114 @@
                 details: "Utilized by local co-ops (Adams-Columbia, Oakdale, Pierce Pepin, etc.) to let members purchase renewable blocks to support green generation.",
                 link: "https://focusonenergy.com/about/participating-utilities",
                 source: "Cooperative Portfolio (Solar/Wind/Hydro)",
-                pricing: "$1.00 / 100 kWh Block"
+                pricing: "$1.00 / 100 kWh Block",
+                searchKeywords: "dairyland, co-op, rural, adams-columbia, oakdale, pierce pepin, evergreen, onalaska, friendship"
             }
         ];
 
-        // Cities mapping to specific utilities for lookup
-        const cityMap = [
-            { name: "Milwaukee", zip: "53202", company: "We Energies" },
-            { name: "Kenosha", zip: "53140", company: "We Energies" },
-            { name: "Racine", zip: "53402", company: "We Energies" },
-            { name: "Waukesha", zip: "53186", company: "We Energies" },
-            { name: "West Allis", zip: "53214", company: "We Energies" },
-            { name: "Appleton", zip: "54911", company: "Wisconsin Public Service (WPS)" },
-            { name: "Green Bay", zip: "54301", company: "Wisconsin Public Service (WPS)" },
-            { name: "Sheboygan", zip: "53081", company: "Wisconsin Public Service (WPS)" },
-            { name: "Oshkosh", zip: "54901", company: "Wisconsin Public Service (WPS)" },
-            { name: "Madison", zip: "53703", company: "Madison Gas & Electric (MGE)" },
-            { name: "Fitchburg", zip: "53711", company: "Madison Gas & Electric (MGE)" },
-            { name: "Eau Claire", zip: "54701", company: "Xcel Energy" },
-            { name: "La Crosse", zip: "54601", company: "Xcel Energy" },
-            { name: "Superior", zip: "54880", company: "Superior Water, Light and Power (SWL&P)" },
-            { name: "Janesville", zip: "53545", company: "Alliant Energy" },
-            { name: "Beloit", zip: "53511", company: "Alliant Energy" },
-            { name: "Columbus", zip: "53925", company: "WPPI Energy Member Utilities" },
-            { name: "Cedarburg", zip: "53012", company: "WPPI Energy Member Utilities" },
-            { name: "Sun Prairie", zip: "53590", company: "WPPI Energy Member Utilities" },
-            { name: "Onalaska", zip: "54650", company: "Dairyland Power Cooperative Members" },
-            { name: "Friendship", zip: "53934", company: "Dairyland Power Cooperative Members" }
-        ];
-
         let activeFilter = 'all';
+        let searchQuery = '';
 
         function renderDirectory() {
             const grid = document.getElementById('programGrid');
             grid.innerHTML = '';
 
-            const filtered = programs.filter(p => activeFilter === 'all' || p.category === activeFilter);
-
-            filtered.forEach(p => {
-                const card = document.createElement('div');
-                card.className = "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 hover:shadow-lg hover:border-brand-500/20 dark:hover:border-brand-500/10 transition duration-300 flex flex-col justify-between group";
-                
-                card.innerHTML = `
-                    <div>
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
-                                p.category === 'Investor-Owned' ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-400' :
-                                p.category === 'Municipal Utility Hub' ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-400' :
-                                'bg-purple-50 text-purple-700 dark:bg-purple-950/40 dark:text-purple-400'
-                            }">${p.category}</span>
-                            <span class="text-xs text-slate-400 flex items-center gap-1">
-                                <i data-lucide="check-circle" class="h-3 w-3 text-brand-500"></i> Active Offer
-                            </span>
-                        </div>
-                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">${p.company}</h3>
-                        <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mb-2.5">
-                            <i data-lucide="leaf" class="h-3.5 w-3.5 text-brand-500"></i> ${p.programName}
-                        </p>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">${p.details}</p>
-                        
-                        <div class="border-t border-slate-100 dark:border-slate-800/80 pt-3 mb-4 space-y-1 text-xs">
-                            <div class="flex justify-between">
-                                <span class="text-slate-400">Match Source</span>
-                                <span class="font-semibold text-slate-700 dark:text-slate-300">${p.source}</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-slate-400">Pricing Profile</span>
-                                <span class="font-semibold text-slate-700 dark:text-slate-300 text-right">${p.pricing}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="${p.link}" target="_blank" rel="noopener noreferrer" 
-                       class="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-brand-600 dark:bg-slate-800 hover:text-white dark:hover:bg-brand-600 py-2.5 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-200 transition duration-150">
-                        View & Enroll <i data-lucide="external-link" class="h-3.5 w-3.5"></i>
-                    </a>
-                `;
-                grid.appendChild(card);
+            const filtered = programs.filter(p => {
+                const matchesFilter = activeFilter === 'all' || p.category === activeFilter;
+                const query = searchQuery.toLowerCase().trim();
+                const matchesSearch = !query || 
+                                      p.company.toLowerCase().includes(query) || 
+                                      p.programName.toLowerCase().includes(query) || 
+                                      p.details.toLowerCase().includes(query) ||
+                                      (p.searchKeywords && p.searchKeywords.toLowerCase().includes(query));
+                return matchesFilter && matchesSearch;
             });
 
-            lucide.createIcons();
-        }
-
-        const cityInput = document.getElementById('cityInput');
-        const citySuggestions = document.getElementById('citySuggestions');
-
-        cityInput.addEventListener('input', () => {
-            const val = cityInput.value.toLowerCase().trim();
-            if (!val) {
-                citySuggestions.classList.add('hidden');
-                return;
-            }
-
-            const matches = cityMap.filter(c => c.name.toLowerCase().includes(val) || c.zip.includes(val));
-            
-            if (matches.length === 0) {
-                citySuggestions.innerHTML = `<div class="p-4 text-sm text-slate-400 text-center">No matching Wisconsin cities found. Try another search.</div>`;
-            } else {
-                citySuggestions.innerHTML = matches.map(c => `
-                    <div onclick="selectCity('${c.name}', '${c.company}')" class="p-3 hover:bg-slate-800 cursor-pointer flex justify-between text-sm transition">
-                        <span class="font-medium text-white">${c.name} <span class="text-slate-500">(${c.zip})</span></span>
-                        <span class="text-brand-500 text-xs">${c.company}</span>
-                    </div>
-                `).join('');
-            }
-            citySuggestions.classList.remove('hidden');
-        });
-
-        function selectCity(name, company) {
-            cityInput.value = name;
-            citySuggestions.classList.add('hidden');
-            lookupUtility();
-        }
-
-        function lookupUtility() {
-            const query = cityInput.value.trim().toLowerCase();
-            if (!query) return;
-
-            const match = cityMap.find(c => c.name.toLowerCase() === query || c.zip === query || query.includes(c.name.toLowerCase()));
-            const modalOverlay = document.getElementById('modalOverlay');
-            const modalContent = document.getElementById('modalContent');
-
-            if (match) {
-                const prog = programs.find(p => p.company === match.company || p.company.includes(match.company) || match.company.includes(p.company));
-                
-                modalContent.innerHTML = `
-                    <div class="text-center">
-                        <div class="h-12 w-12 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto mb-4">
-                            <i data-lucide="map-pin" class="h-6 w-6"></i>
-                        </div>
-                        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-400">Match Found</span>
-                        <h3 class="text-xl font-bold mt-1 text-slate-900 dark:text-white">${match.name} (${match.zip})</h3>
-                        <p class="text-sm text-slate-500 mt-1">Your location is serviced by <strong class="font-semibold text-slate-800 dark:text-slate-200">${match.company}</strong></p>
-                        
-                        <div class="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 rounded-2xl p-4 my-6 text-left">
-                            <h4 class="font-bold text-xs text-brand-600 dark:text-brand-400 uppercase tracking-widest mb-1.5 flex items-center gap-1.5">
-                                <i data-lucide="leaf" class="h-3.5 w-3.5"></i> ${prog.programName}
-                            </h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-400">${prog.details}</p>
-                        </div>
-
-                        <div class="flex flex-col gap-2">
-                            <a href="${prog.link}" target="_blank" rel="noopener noreferrer" class="w-full bg-brand-600 hover:bg-brand-700 transition font-bold py-3 px-4 rounded-xl text-white text-sm flex items-center justify-center gap-1.5">
-                                Visit Program Website <i data-lucide="external-link" class="h-4 w-4"></i>
-                            </a>
-                            <button onclick="closeModal()" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition font-semibold text-slate-700 dark:text-slate-300 py-2.5 px-4 rounded-xl text-xs">
-                                Close Lookup
-                            </button>
-                        </div>
-                    </div>
-                `;
-            } else {
-                modalContent.innerHTML = `
-                    <div class="text-center">
-                        <div class="h-12 w-12 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-500 flex items-center justify-center mx-auto mb-4">
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-12 text-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6">
+                        <div class="h-12 w-12 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 flex items-center justify-center mx-auto mb-3">
                             <i data-lucide="alert-circle" class="h-6 w-6"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Region Not Pre-Mapped</h3>
-                        <p class="text-xs text-slate-500 mt-2 leading-relaxed">We couldn't instantly map "${cityInput.value}" directly. However, you can explore all available utility portals in the directory list below!</p>
-                        <button onclick="closeModal()" class="mt-6 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition">
-                            Browse Directory List
-                        </button>
+                        <h3 class="font-bold text-slate-800 dark:text-slate-100">No matching utility programs found</h3>
+                        <p class="text-xs text-slate-500 mt-1">Try resetting the filters or searching for terms like "Columbus", "MGE", or "Manitowoc"</p>
+                        <button onclick="resetFilters()" class="mt-4 bg-brand-600 hover:bg-brand-700 transition font-bold py-2 px-4 rounded-xl text-white text-xs">Reset Filters</button>
                     </div>
                 `;
+            } else {
+                filtered.forEach(p => {
+                    const card = document.createElement('div');
+                    card.className = "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 hover:shadow-lg hover:border-brand-500/20 dark:hover:border-brand-500/10 transition duration-300 flex flex-col justify-between group";
+                    
+                    card.innerHTML = `
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
+                                    p.category === 'Investor-Owned' ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-400' :
+                                    p.category === 'Municipal Utility Hub' ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-400' :
+                                    'bg-purple-50 text-purple-700 dark:bg-purple-950/40 dark:text-purple-400'
+                                }">${p.category === 'Municipal Utility Hub' ? 'Municipal' : p.category === 'Rural Cooperative Hub' ? 'Rural Co-op' : p.category}</span>
+                                <span class="text-xs text-slate-400 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="h-3 w-3 text-brand-500"></i> Active Offer
+                                </span>
+                            </div>
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">${p.company}</h3>
+                            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mb-2.5">
+                                <i data-lucide="leaf" class="h-3.5 w-3.5 text-brand-500"></i> ${p.programName}
+                            </p>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">${p.details}</p>
+                            
+                            <div class="border-t border-slate-100 dark:border-slate-800/80 pt-3 mb-4 space-y-1 text-xs">
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Match Source</span>
+                                    <span class="font-semibold text-slate-700 dark:text-slate-300">${p.source}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Pricing Profile</span>
+                                    <span class="font-semibold text-slate-700 dark:text-slate-300 text-right">${p.pricing}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="${p.link}" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-brand-600 dark:bg-slate-800 hover:text-white dark:hover:bg-brand-600 py-2.5 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-200 transition duration-150">
+                            View & Enroll <i data-lucide="external-link" class="h-3.5 w-3.5"></i>
+                        </a>
+                    `;
+                    grid.appendChild(card);
+                });
             }
 
-            modalOverlay.classList.remove('hidden');
             lucide.createIcons();
         }
 
-        function closeModal() {
-            document.getElementById('modalOverlay').classList.add('hidden');
+        // Action when searching via hero
+        function triggerHeroSearch() {
+            const input = document.getElementById('heroSearchInput');
+            searchQuery = input.value;
+            renderDirectory();
+            
+            // Seamlessly scroll down to directory
+            const dirSection = document.getElementById('directory');
+            dirSection.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Close dropdown if clicking outside
-        document.addEventListener('click', (e) => {
-            if (!cityInput.contains(e.target) && !citySuggestions.contains(e.target)) {
-                citySuggestions.classList.add('hidden');
-            }
+        // Live filtering from search bar typing
+        document.getElementById('heroSearchInput').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderDirectory();
         });
+
+        function resetFilters() {
+            activeFilter = 'all';
+            searchQuery = '';
+            document.getElementById('heroSearchInput').value = '';
+            
+            const firstFilterBtn = document.querySelectorAll('.filter-btn')[0];
+            updateButtonStates(firstFilterBtn);
+            
+            renderDirectory();
+        }
 
         const billSlider = document.getElementById('billSlider');
         const billVal = document.getElementById('billVal');
@@ -593,19 +538,23 @@
                 // Rate: 1.0 cent per kWh matched
                 premium = matchedKwhMonthly * 0.01000;
             } else if (selectedUtility === "Xcel Energy") {
-                // Approximate Flex/Legacy premium of ~1.1 cents per kWh
                 premium = matchedKwhMonthly * 0.01100;
             } else if (selectedUtility === "Superior Water, Light and Power (SWL&P)") {
-                // Approximate fixed community solar scale
                 premium = matchedKwhMonthly * 0.01500;
             } else if (selectedUtility === "WPPI Energy Member Utilities") {
-                // Choose Renewable is $2.00 per 300 kWh block
                 const blocks = Math.round(matchedKwhMonthly / 300);
                 premium = Math.max(1, blocks) * 2.00;
             } else if (selectedUtility === "Dairyland Power Cooperative Members") {
-                // Evergreen blocks are $1.00 per 100 kWh
                 const blocks = Math.round(matchedKwhMonthly / 100);
                 premium = blocks * 1.00;
+            } else if (selectedUtility === "Manitowoc Public Utilities (MPU)") {
+                // MPU Solar Block match approx. $1.50 per block
+                const blocks = Math.round(matchedKwhMonthly / 100);
+                premium = Math.max(1, blocks) * 1.50;
+            } else if (selectedUtility === "Wisconsin Rapids Water Works & Lighting Commission (WWLC)") {
+                // WWLC block match at $1.70 per 100 kWh block
+                const blocks = Math.round(matchedKwhMonthly / 100);
+                premium = Math.max(1, blocks) * 1.70;
             }
 
             premiumEst.innerText = `$${Math.max(0.50, premium).toFixed(2)}`;
@@ -614,16 +563,20 @@
         billSlider.addEventListener('input', updateCalculator);
 
         const filterBtns = document.querySelectorAll('.filter-btn');
+        
+        function updateButtonStates(activeBtn) {
+            filterBtns.forEach(btn => {
+                if (btn === activeBtn) {
+                    btn.className = "filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-600 text-white shadow-md shadow-brand-500/10 border border-transparent hover:bg-brand-700 transition cursor-pointer";
+                } else {
+                    btn.className = "filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800 transition cursor-pointer";
+                }
+            });
+        }
+
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/10', 'border-transparent');
-                    b.classList.add('bg-white', 'border-slate-200', 'text-slate-600', 'dark:bg-slate-900', 'dark:border-slate-800', 'dark:text-slate-300');
-                });
-
-                btn.classList.add('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/10', 'border-transparent');
-                btn.classList.remove('bg-white', 'border-slate-200', 'text-slate-600', 'dark:bg-slate-900', 'dark:border-slate-800', 'dark:text-slate-300');
-
+                updateButtonStates(btn);
                 activeFilter = btn.getAttribute('data-filter');
                 renderDirectory();
             });
