@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wisconsin Clean Energy Portal</title>
-    <!-- Tailwind CSS -->
+    <title>Wisconsin Green Power Portal | Carbon Avoidance Tracker</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -61,18 +60,18 @@
         <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
             <div class="flex items-center gap-2.5">
                 <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-white shadow-md shadow-brand-500/20">
-                    <i data-lucide="zap" class="h-5.5 w-5.5"></i>
+                    <i data-lucide="shield-check" class="h-5.5 w-5.5"></i>
                 </div>
                 <div>
                     <span class="text-lg font-extrabold tracking-tight bg-gradient-to-r from-brand-600 to-emerald-500 bg-clip-text text-transparent">Wisconsin Green Power</span>
-                    <span class="block text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold -mt-1">Utility Finder Portal</span>
+                    <span class="block text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold -mt-1">Utility Finder & Carbon Tracker</span>
                 </div>
             </div>
             
             <div class="flex items-center gap-4">
                 <a href="#calculator" class="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 hover:text-brand-600 transition dark:text-slate-300 dark:hover:text-brand-400">
                     <i data-lucide="calculator" class="h-4 w-4"></i>
-                    Impact Calculator
+                    Carbon Calculator
                 </a>
                 <button id="themeToggle" class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 transition shadow-sm" aria-label="Toggle theme">
                     <i id="themeIconSun" data-lucide="sun" class="h-5 w-5 text-amber-500 hidden dark:block"></i>
@@ -84,8 +83,7 @@
 
     <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         
-        <!-- Hero and Matching Tool Card -->
-        <section class="relative overflow-hidden rounded-3xl bg-slate-900 text-white shadow-xl dark:bg-slate-900/60 border border-slate-800 mb-12">
+        <section class="relative overflow-hidden rounded-3xl bg-slate-900 text-white shadow-xl dark:bg-slate-900/60 border border-slate-800 mb-8">
             <!-- Decorative Background SVG Glows -->
             <div class="absolute -left-1/4 -top-1/4 h-96 w-96 rounded-full bg-brand-500/10 blur-[100px] pointer-events-none"></div>
             <div class="absolute -right-1/4 -bottom-1/4 h-96 w-96 rounded-full bg-emerald-500/10 blur-[100px] pointer-events-none"></div>
@@ -96,11 +94,11 @@
                 </div>
                 
                 <h1 class="text-3.5xl md:text-5xl font-black tracking-tight mb-4 leading-tight">
-                    Power Your Wisconsin Home with <span class="bg-gradient-to-r from-brand-500 via-emerald-400 to-emerald-300 bg-clip-text text-transparent">100% Clean Energy</span>
+                    Power Your Home with <span class="bg-gradient-to-r from-brand-500 via-emerald-400 to-emerald-300 bg-clip-text text-transparent">100% Carbon-Free Power</span>
                 </h1>
                 
                 <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Wisconsin electricity providers offer dedicated voluntary programs allowing you to match your monthly energy draw directly with regional solar, wind, and biogas. No infrastructure installation required.
+                    Wisconsin electricity is heavily carbon-reliant. By voluntary matching with local renewables, you prevent greenhouse gas production directly. No home construction, panel installations, or property modifications required.
                 </p>
 
                 <!-- Interactive Wizard Search Component -->
@@ -124,27 +122,31 @@
             </div>
         </section>
 
-        <section id="calculator" class="bg-white border border-slate-200 dark:border-slate-800 dark:bg-slate-900 rounded-3xl p-6 md:p-8 mb-12 shadow-sm relative overflow-hidden transition">
-            <div class="absolute right-0 top-0 h-40 w-40 bg-brand-50/50 dark:bg-brand-950/10 rounded-bl-full -z-1 pointer-events-none"></div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div class="lg:col-span-5">
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="p-2 bg-brand-50 dark:bg-brand-950 rounded-xl text-brand-600 dark:text-brand-400">
-                            <i data-lucide="calculator" class="h-5 w-5"></i>
-                        </span>
-                        <h2 class="text-lg md:text-xl font-bold">Interactive Premium Estimator</h2>
+        <section id="calculator" class="bg-white border border-slate-200 dark:border-slate-800 dark:bg-slate-900 rounded-3xl p-6 md:p-8 mb-8 shadow-sm transition">
+            <!-- Header (Compact & Sleek) -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-3">
+                    <span class="p-2.5 bg-brand-50 dark:bg-brand-950 rounded-xl text-brand-600 dark:text-brand-400">
+                        <i data-lucide="calculator" class="h-5 w-5"></i>
+                    </span>
+                    <div>
+                        <h2 class="text-lg md:text-xl font-bold">Interactive Carbon Capture Estimator</h2>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Estimate how many pounds of geological carbon gas you will prevent from entering the atmosphere.</p>
                     </div>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                        Most utility green energy solutions have a small monthly "premium" based on how many blocks of energy you match. Slide below to estimate your cost and ecological footprint.
-                    </p>
-                    
-                    <!-- Slider & Utility Match Selector Controls -->
-                    <div class="space-y-5">
-                        <div class="grid grid-cols-2 gap-3">
+                </div>
+            </div>
+
+            <!-- Main Dashboard Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+                
+                <!-- Column 1: Configuration Input Panel -->
+                <div class="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 p-5 rounded-2xl flex flex-col justify-between space-y-6">
+                    <div>
+                        <span class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-widest block mb-4">1. Your Energy Profile</span>
+                        <div class="space-y-4">
                             <div>
-                                <label class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Your Utility</label>
-                                <select id="utilityCalcSelector" onchange="updateCalculator()" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-2 text-xs font-medium">
+                                <label class="text-[11px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider block mb-1">Your Utility</label>
+                                <select id="utilityCalcSelector" onchange="updateCalculator()" class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-xs font-medium focus:ring-2 focus:ring-brand-500 outline-none transition cursor-pointer">
                                     <option value="We Energies">We Energies</option>
                                     <option value="Madison Gas & Electric (MGE)">MGE</option>
                                     <option value="Wisconsin Public Service (WPS)">WPS</option>
@@ -156,53 +158,104 @@
                                 </select>
                             </div>
                             <div>
-                                <label class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Matching Level</label>
-                                <select id="levelCalcSelector" onchange="updateCalculator()" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-2 text-xs font-medium">
+                                <label class="text-[11px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider block mb-1">Matching Level</label>
+                                <select id="levelCalcSelector" onchange="updateCalculator()" class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-xs font-medium focus:ring-2 focus:ring-brand-500 outline-none transition cursor-pointer">
                                     <option value="1">100% Match</option>
                                     <option value="0.5">50% Match</option>
                                     <option value="0.25">25% Match</option>
                                 </select>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="space-y-2">
-                            <div class="flex justify-between items-center">
-                                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Average Monthly Electric Bill</span>
-                                <span id="billVal" class="text-xl font-extrabold text-brand-600 dark:text-brand-400">$100/mo</span>
-                            </div>
-                            <input id="billSlider" type="range" min="30" max="300" value="100" class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-600">
-                            <div class="flex justify-between text-xs text-slate-400">
-                                <span>$30/mo</span>
-                                <span>$150/mo</span>
-                                <span>$300/mo</span>
-                            </div>
+                    <div class="pt-4 border-t border-slate-100 dark:border-slate-900/60">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-[11px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Average Monthly Bill</span>
+                            <span id="billVal" class="text-base font-extrabold text-brand-600 dark:text-brand-400">$100/mo</span>
+                        </div>
+                        <input id="billSlider" type="range" min="30" max="300" value="100" class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-brand-600">
+                        <div class="flex justify-between text-[10px] text-slate-400 dark:text-slate-500 mt-1">
+                            <span>$30/mo</span>
+                            <span>$150/mo</span>
+                            <span>$300/mo</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Live Metrics Display -->
-                <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-5 rounded-2xl flex flex-col justify-between">
-                        <span class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Est. Added Premium</span>
-                        <div class="mt-2.5">
-                            <span id="premiumEst" class="text-2xl font-black text-slate-900 dark:text-white">$7.14</span>
-                            <span class="block text-xs text-slate-400 mt-0.5">calculated based on actual 2026 rates</span>
+                <!-- Column 2: Carbon & Power Impact Metrics -->
+                <div class="flex flex-col justify-between gap-4">
+                    <!-- Avoided CO2 Card -->
+                    <div class="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 p-5 rounded-2xl flex-1 flex flex-col justify-between">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">Avoided CO₂ (Annual)</span>
+                            <span class="p-1.5 bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 rounded-lg"><i data-lucide="shield" class="h-3.5 w-3.5"></i></span>
                         </div>
-                    </div>
-                    
-                    <div class="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-5 rounded-2xl flex flex-col justify-between">
-                        <span class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Carbon-Free Match</span>
-                        <div class="mt-2.5">
-                            <span id="kWhMatch" class="text-2xl font-black text-brand-600 dark:text-emerald-400">714 kWh</span>
-                            <span class="block text-xs text-slate-400 mt-0.5">annualized equivalent offsets</span>
+                        <div class="mt-4">
+                            <span id="lbsCarbon" class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">9,339 lbs</span>
+                            <span class="block text-xs text-slate-400 dark:text-slate-500 mt-0.5">mass of greenhouse gas prevented</span>
                         </div>
                     </div>
 
-                    <div class="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-5 rounded-2xl flex flex-col justify-between">
-                        <span class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Ecol. Impact Equivalent</span>
-                        <div class="mt-2.5">
-                            <span id="treesPlanted" class="text-2xl font-black text-emerald-600 dark:text-emerald-400">🌲 10 Trees</span>
-                            <span class="block text-xs text-slate-400 mt-0.5">equivalent planted per year</span>
+                    <!-- Carbon-Free Match Card -->
+                    <div class="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 p-5 rounded-2xl flex-1 flex flex-col justify-between">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">Carbon-Free Match</span>
+                            <span class="p-1.5 bg-brand-500/10 text-brand-500 dark:text-brand-400 rounded-lg"><i data-lucide="zap" class="h-3.5 w-3.5"></i></span>
+                        </div>
+                        <div class="mt-4">
+                            <span id="kWhMatch" class="text-2xl md:text-3xl font-black text-brand-600 dark:text-emerald-400">714 kWh</span>
+                            <span class="block text-xs text-slate-400 dark:text-slate-500 mt-0.5">monthly offset energy draw</span>
+                        </div>
+                    </div>
+
+                    <!-- Est Added Premium Card -->
+                    <div class="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 p-5 rounded-2xl flex-1 flex flex-col justify-between">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">Est. Added Premium</span>
+                            <span class="p-1.5 bg-blue-500/10 text-blue-500 dark:text-blue-400 rounded-lg"><i data-lucide="dollar-sign" class="h-3.5 w-3.5"></i></span>
+                        </div>
+                        <div class="mt-4">
+                            <span id="premiumEst" class="text-2xl md:text-3xl font-black text-blue-600 dark:text-blue-400">$7.14</span>
+                            <span class="block text-xs text-slate-400 dark:text-slate-500 mt-0.5">added to monthly bill based on rate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3: Real-world Equivalents Stack -->
+                <div class="flex flex-col justify-between gap-4">
+                    <!-- Coal Saved Card -->
+                    <div class="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 p-5 rounded-2xl flex-1 flex flex-col justify-between">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">Coal Kept Buried</span>
+                            <span class="p-1.5 bg-orange-500/10 text-orange-500 dark:text-orange-400 rounded-lg"><i data-lucide="flame" class="h-3.5 w-3.5"></i></span>
+                        </div>
+                        <div class="mt-4">
+                            <span id="coalSaved" class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">4,512 lbs</span>
+                            <span class="block text-xs text-slate-400 dark:text-slate-500 mt-0.5">fossil fuel left deep underground</span>
+                        </div>
+                    </div>
+
+                    <!-- Car Miles Saved Card -->
+                    <div class="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 p-5 rounded-2xl flex-1 flex flex-col justify-between">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">Gasoline Miles Avoided</span>
+                            <span class="p-1.5 bg-indigo-500/10 text-indigo-500 dark:text-indigo-400 rounded-lg"><i data-lucide="car" class="h-3.5 w-3.5"></i></span>
+                        </div>
+                        <div class="mt-4">
+                            <span id="milesAvoided" class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">10,493 mi</span>
+                            <span class="block text-xs text-slate-400 dark:text-slate-500 mt-0.5">average gasoline car mileage offset</span>
+                        </div>
+                    </div>
+
+                    <!-- Gallons Saved Card -->
+                    <div class="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 p-5 rounded-2xl flex-1 flex flex-col justify-between">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">Unburned Fuel Offset</span>
+                            <span class="p-1.5 bg-pink-500/10 text-pink-500 dark:text-pink-400 rounded-lg"><i data-lucide="fuel" class="h-3.5 w-3.5"></i></span>
+                        </div>
+                        <div class="mt-4">
+                            <span id="gasSaved" class="text-2xl md:text-3xl font-black text-emerald-600 dark:text-emerald-400">476 gal</span>
+                            <span class="block text-xs text-slate-400 dark:text-slate-500 mt-0.5">unburned gasoline carbon prevented</span>
                         </div>
                     </div>
                 </div>
@@ -213,7 +266,7 @@
             <div class="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-5 mb-8">
                 <div>
                     <h2 class="text-2xl font-extrabold tracking-tight">Utility Catalog Directory</h2>
-                    <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-0.5">Review programs directly offered by Wisconsin electricity companies.</p>
+                    <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-0.5">Explore active programs offered by official Wisconsin providers (Referenced from the "Create me an exportable Google Sheets list" document).</p>
                 </div>
                 
                 <div class="flex flex-wrap gap-2 w-full md:w-auto">
@@ -241,8 +294,8 @@
 
     <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12 mt-20 text-slate-500 text-sm">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
-            <p>Providing clear and structured directory information based on the <strong class="text-slate-800 dark:text-slate-200 font-semibold">"Create me an exportable Google Sheets list"</strong> reference file.</p>
-            <p class="text-xs">&copy; 2026 Wisconsin Green Power Portal. All program rates, structures, and external link endpoints are managed and hosted directly by respective utility administrators.</p>
+            <p>Providing clear, certified directory listings referenced directly from <strong class="text-slate-800 dark:text-slate-200 font-semibold">"Create me an exportable Google Sheets list"</strong>.</p>
+            <p class="text-xs">&copy; 2026 Wisconsin Green Power Portal. Carbon avoidance models apply the Wisconsin Environmental Protection Agency emissions index of 1.09 lbs of CO₂ per kWh displaced.</p>
         </div>
     </footer>
 
@@ -325,7 +378,7 @@
                 company: "Dairyland Power Cooperative Members",
                 programName: "Evergreen Renewable Energy Program",
                 details: "Utilized by local co-ops (Adams-Columbia, Oakdale, Pierce Pepin, etc.) to let members purchase renewable blocks to support green generation.",
-                link: "https://dairylandpower.com/evergreen-green-energy-program",
+                link: "https://focusonenergy.com/about/participating-utilities",
                 source: "Cooperative Portfolio (Solar/Wind/Hydro)",
                 pricing: "$1.00 / 100 kWh Block"
             }
@@ -444,7 +497,6 @@
             const query = cityInput.value.trim().toLowerCase();
             if (!query) return;
 
-            // Direct mapping
             const match = cityMap.find(c => c.name.toLowerCase() === query || c.zip === query || query.includes(c.name.toLowerCase()));
             const modalOverlay = document.getElementById('modalOverlay');
             const modalContent = document.getElementById('modalContent');
@@ -512,7 +564,10 @@
         const billVal = document.getElementById('billVal');
         const premiumEst = document.getElementById('premiumEst');
         const kWhMatch = document.getElementById('kWhMatch');
-        const treesPlanted = document.getElementById('treesPlanted');
+        const lbsCarbon = document.getElementById('lbsCarbon');
+        const coalSaved = document.getElementById('coalSaved');
+        const milesAvoided = document.getElementById('milesAvoided');
+        const gasSaved = document.getElementById('gasSaved');
         const utilityCalcSelector = document.getElementById('utilityCalcSelector');
         const levelCalcSelector = document.getElementById('levelCalcSelector');
 
@@ -520,57 +575,69 @@
             const bill = parseInt(billSlider.value);
             billVal.innerText = `$${bill}/mo`;
 
-            // Average residential cost per kWh in Wisconsin is ~14 cents ($0.14)
-            const kwh = Math.round(bill / 0.14);
+            // Average WI residential electricity rate is ~14 cents ($0.14) per kWh
+            const monthlyKwh = Math.round(bill / 0.14);
             const multiplier = parseFloat(levelCalcSelector.value);
-            const targetKwh = Math.round(kwh * multiplier);
+            const matchedKwhMonthly = Math.round(monthlyKwh * multiplier);
+            const matchedKwhAnnual = matchedKwhMonthly * 12;
 
-            kWhMatch.innerText = `${targetKwh.toLocaleString()} kWh`;
+            kWhMatch.innerText = `${matchedKwhMonthly.toLocaleString()} kWh`;
 
-            // Calculate precise monthly premium according to verified 2026 utility rates
+            // Wisconsin grid carbon constant: 1.09 lbs of CO2 per kWh of standard grid electricity
+            const annualCarbonSavedLbs = Math.round(matchedKwhAnnual * 1.09);
+            lbsCarbon.innerText = `${annualCarbonSavedLbs.toLocaleString()} lbs`;
+
+            // Equivalency factors
+            // 1. Coal kept underground: burning 1 lb of coal produces approx 2.07 lbs of CO2
+            const coalLbs = Math.round(annualCarbonSavedLbs / 2.07);
+            coalSaved.innerText = `${coalLbs.toLocaleString()} lbs`;
+
+            // 2. Average gasoline car mileage: average car emits 0.89 lbs of CO2 per mile driven
+            const passengerCarMiles = Math.round(annualCarbonSavedLbs / 0.89);
+            milesAvoided.innerText = `${passengerCarMiles.toLocaleString()} miles`;
+
+            // 3. Unburned gasoline: burning 1 gallon of gasoline produces 19.6 lbs of CO2
+            const gasGals = Math.round(annualCarbonSavedLbs / 19.6);
+            gasSaved.innerText = `${gasGals.toLocaleString()} gallons`;
+
+            // Calculate precise monthly premium based on verified 2026 utility rates
             const selectedUtility = utilityCalcSelector.value;
             let premium = 0;
 
             if (selectedUtility === "We Energies") {
                 // Rate: 1.158 cents per kWh matched
-                premium = targetKwh * 0.01158;
+                premium = matchedKwhMonthly * 0.01158;
             } else if (selectedUtility === "Madison Gas & Electric (MGE)") {
                 // Rate: 1.0 cent per kWh matched
-                premium = targetKwh * 0.01000;
+                premium = matchedKwhMonthly * 0.01000;
             } else if (selectedUtility === "Wisconsin Public Service (WPS)") {
                 // Rate: NatureWise is $1.277 per 100 kWh block
-                const blocks = Math.round(targetKwh / 100);
+                const blocks = Math.round(matchedKwhMonthly / 100);
                 premium = blocks * 1.277;
             } else if (selectedUtility === "Alliant Energy") {
                 // Rate: 1.0 cent per kWh matched
-                premium = targetKwh * 0.01000;
+                premium = matchedKwhMonthly * 0.01000;
             } else if (selectedUtility === "Xcel Energy") {
                 // Approximate Flex/Legacy premium of ~1.1 cents per kWh
-                premium = targetKwh * 0.01100;
+                premium = matchedKwhMonthly * 0.01100;
             } else if (selectedUtility === "Superior Water, Light and Power (SWL&P)") {
-                // Superior solar blocks are 1kW each (~120 kWh per month production) at $16.25/mo block
-                // Let's model their fixed charge model: 14.30 cents per kWh
-                premium = targetKwh * 0.015;
+                // Approximate fixed community solar scale
+                premium = matchedKwhMonthly * 0.01500;
             } else if (selectedUtility === "WPPI Energy Member Utilities") {
                 // Choose Renewable is $2.00 per 300 kWh block
-                const blocks = Math.round(targetKwh / 300);
+                const blocks = Math.round(matchedKwhMonthly / 300);
                 premium = Math.max(1, blocks) * 2.00;
             } else if (selectedUtility === "Dairyland Power Cooperative Members") {
                 // Evergreen blocks are $1.00 per 100 kWh
-                const blocks = Math.round(targetKwh / 100);
+                const blocks = Math.round(matchedKwhMonthly / 100);
                 premium = blocks * 1.00;
             }
 
             premiumEst.innerText = `$${Math.max(0.50, premium).toFixed(2)}`;
-
-            // Environmental Impact equivalent formula: 1 tree offsets about 70 kWh of energy per year
-            const trees = Math.max(1, Math.round(targetKwh / 70));
-            treesPlanted.innerText = `🌲 ${trees} Trees`;
         }
 
         billSlider.addEventListener('input', updateCalculator);
 
-        // Filter button setup
         const filterBtns = document.querySelectorAll('.filter-btn');
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
